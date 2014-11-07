@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+class Main {
+  public static void print(int i, int j){
+    int min = Math.min(i, j);
+    int max = Math.max(i, j);
+    
+    int maxResult = 0;
+    for (int n = min; n <=max; n++) {
+      int testCase = n;
+      int count = 1;
+      while (testCase > 1) {
+        testCase = (testCase%2==0) ? testCase/2 : (3*testCase)+1;
+        count++;
+      }
+      maxResult = Math.max(maxResult, count);
+      testCase++;
+    }
+    
+    System.out.println(i+" "+j+" "+maxResult);
+  }
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    while(sc.hasNextInt()) {
+      int i = sc.nextInt();
+      int j = sc.nextInt();
+      print(i,j);
+    }
+    sc.close();
+  }
+}
+
